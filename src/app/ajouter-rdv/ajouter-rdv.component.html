@@ -1,0 +1,22 @@
+<h2 align="center">Insertion d'un rendez-vous</h2>
+<br>
+<div class="container ">
+<div class="form-group row">
+  <label for="Titre" class="col-xs-4 col-md-2 col-form-label">Titre :</label>
+  <div class="col-xs-8 col-sm-4">
+    <input type="text" class="form-control" id="Titre" [(ngModel)]="formulaire.titre">
+  </div>
+</div>
+  <br>
+
+  <div class="form-group row">
+    <label for="Description" class="col-xs-4 col-md-2 col-form-label">Description :</label>
+    <div class="col-xs-8 col-sm-4">
+      <input type="text" class="form-control" id="Description" [(ngModel)]="formulaire.description">
+    </div>
+  </div>
+  <br>
+
+  <button class="btn-dark col-6" (click)="validerAjout()" routerLink="/lister" style="background-color: black; color:white;border-color:white ">Valider</button>
+  <br>
+</div>

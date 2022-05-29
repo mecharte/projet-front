@@ -1,0 +1,25 @@
+<div class="container ">
+  <h1>Insertion d'un creneau</h1>
+  <br>
+  <div class="form-group row">
+    <label for="heureDebut" class="col-xs-4 col-md-2 col-form-label">Heure Debut :</label>
+    <div class="col-xs-8 col-sm-4">
+      <input type="text" class="form-control" id="heureDebut" [(ngModel)]="creneau.heureD">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="heureFin" class="col-xs-4 col-md-2 col-form-label">Heure Fin :</label>
+    <div class="col-xs-8 col-sm-4">
+      <input type="text" class="form-control" id="heureFin" [(ngModel)]="creneau.heureF">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="date" class="col-xs-4 col-md-2 col-form-label">Date :</label>
+    <div class="col-xs-8 col-sm-4">
+      <input type="text" class="form-control" id="date" [(ngModel)]="creneau.date">
+    </div>
+  </div>
+  <button class="btn col-6" (click)="ajouterCreneau()" [disabled]="creneau.heureD==='' || creneau.heureF==='' || creneau.date===''" style="background-color: black; color:white;border-color:white ">Valider</button>
+</div>

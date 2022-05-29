@@ -1,0 +1,43 @@
+<br>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5>{{detail.titre}}</h5>
+        <p class="card-text">
+          {{detail.description}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <h5 class="col-7">Creneaux disponibles pour ce Rdv : </h5>
+  <!-- Affichage de la liste des creneaux -->
+    <div class="row">
+      <div class="col-10">
+        <table class="table table-striped">
+          <thead>
+          <th class="col-2" id="id ">ID <i class="bi bi-filter ml-2"></i></th>
+          <th class="col-2" id="HeureD ">HeureD <i class="bi bi-filter ml-2"></i></th>
+          <th class="col-2" id="HeureF">HeureF<i class="bi bi-filter ml-2"></i></th>
+          <th class="col-3">date</th>
+          <th class="col-4" id="nbOK">nb participants OK <i class="bi bi-filter ml-2"></i></th>
+          <th class="col-4" id="nbKO">nb participants KO <i class="bi bi-filter ml-2"></i></th>
+          </thead>
+          <tbody>
+          <!-- Boucle pour parcourir les creneaux -->
+          <tr *ngFor=" let creneau of detail.listeCreneaux;">
+            <td>{{creneau.id}}</td>
+            <td>{{creneau.heureD}}</td>
+            <td>{{creneau.heureF}}</td>
+            <td>{{creneau.date}}</td>
+            <td>{{creneau.numOK}} <button class="btn btn-success btn-sm mb-2"(click)="ajouterOK(creneau);ajouterDansListeParticipe()">OK</button></td>
+            <td>{{creneau.numKO}} <button class="btn btn-danger btn-sm mb-2" (click)="ajouterKO(creneau)">KO</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <input type="button" class="btn btn-info" (click)="ouvrirFormCreneau()" value="ADD creneau">
+  <input type="button" class="btn btn-info" (click)="cloturerRDV()" value="Cloturer rendez-vous">
+  <app-ajouter-creneau *ngIf="formCreneauCache"></app-ajouter-creneau>

@@ -1,0 +1,19 @@
+<br>
+<div class="container ">
+  <div class="form-group row">
+    <label for="nom" class="col-xs-4 col-md-2 col-form-label ">Nom :</label>
+    <div class="col-xs-8 col-sm-4">
+      <input type="text" class="form-control" id="nom" [(ngModel)]="formulairePers.nom">
+    </div>
+  </div>
+  <br>
+  <div class="form-group row">
+    <label for="prenom" class="col-xs-4 col-md-2 col-form-label">Prenom :</label>
+    <div class="col-xs-8 col-sm-4">
+      <input type="text" class="form-control" id="prenom" [(ngModel)]="formulairePers.prenom">
+    </div>
+  </div>
+  <br>
+  <button class="btn-dark col-6" (click)="validePers()" routerLink="/lister" style="background-color: black; color:white;border-color:white ">Valider</button>
+  <br>
+</div>

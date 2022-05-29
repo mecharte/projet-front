@@ -1,0 +1,22 @@
+<nav class="navbar mb-5" xmlns="http://www.w3.org/1999/html">
+    <a href="index.html">
+      <img src="assets/calendar.png">
+    </a>
+    <h1>Projet DodleMe</h1>
+    <app-lister-pers></app-lister-pers>
+    <div class="dropdown" id="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/menu.png"></button>
+      <div class="dropdown-menu" aria-labelledby="deroulantb">
+        <button class="dropdown-item" type="button" routerLink="listerEvt">Profil</button>
+        <a class="dropdown-item" routerLink="rechercher">Recherche</a>
+        <a class="dropdown-item" routerLink="lister">Liste event</a>
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>
+<footer class="text-center" style="background-color:#d3f9ff"><p>©CT/PT - 2022</p></footer>
+
+
+
+
+

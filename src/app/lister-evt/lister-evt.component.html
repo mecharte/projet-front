@@ -1,0 +1,45 @@
+<h1><u>Liste de Réunion Créée</u></h1>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="col-2">#</th>
+      <th class="col-3">Titre</th>
+      <th class="col-3">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rdv of this.listeEvt; index as i">
+      <td>{{i+1}}</td>
+      <td>{{rdv.titre}}</td>
+      <td>{{rdv.description}}</td>
+      <button class="btn-dark col-12" routerLink="/detail/{{rdv.id}}" style="background-color: black; color:white;">Detail</button>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  <br>
+
+  <h1><u>Liste de Réunions Participées</u></h1>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="col-2">#</th>
+        <th class="col-3">Titre</th>
+        <th class="col-3">Description</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rdv of this.listeEvtParcitipe; index as i">
+        <td>{{i+1}}</td>
+        <td>{{rdv.titre}}</td>
+        <td>{{rdv.description}}</td>
+        <button class="btn-dark col-12" routerLink="/detail/{{rdv.id}}" style="background-color: black; color:white;">Detail</button>
+      </tr>
+      </tbody>
+    </table>
+
+</div>
