@@ -6,7 +6,6 @@
       <th class="col-2">#</th>
       <th class="col-3">Titre</th>
       <th class="col-3">Description</th>
-    </tr>
     </thead>
     <tbody>
     <tr *ngFor="let rdv of this.listeEvt; index as i">
@@ -33,7 +32,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let rdv of this.listeEvtParcitipe; index as i">
+      <tr *ngFor="let rdv of this.listeEvtParticipe; index as i">
         <td>{{i+1}}</td>
         <td>{{rdv.titre}}</td>
         <td>{{rdv.description}}</td>

@@ -14,6 +14,6 @@
     </div>
   </div>
   <br>
-  <button class="btn-dark col-6" (click)="validePers()" routerLink="/lister" style="background-color: black; color:white;border-color:white ">Valider</button>
+  <button class="btn-dark col-6" (click)="validePers()" [disabled]="formulairePers.nom==='' || formulairePers.prenom===''" routerLink="/lister" style="background-color: black; color:white;border-color:white ">Valider</button>
   <br>
 </div>

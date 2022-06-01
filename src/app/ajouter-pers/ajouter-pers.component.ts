@@ -15,7 +15,10 @@ export class AjouterPersComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formulairePers = new profilRdv();}
+  //methode qui permet d'ajouter une personne a la listePers
+  //formulairePers => objet personne obtenue avec le formulaire d'inscription
   validePers(){
     this.apiRdvBrokerService.ajouterPers(this.formulairePers);
+    window.location.reload ();
   }
 }

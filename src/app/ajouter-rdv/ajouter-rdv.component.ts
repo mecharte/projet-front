@@ -22,7 +22,8 @@ export class AjouterRdvComponent implements OnInit {
   ngOnInit(): void {
       this.formulaire = new rdv();
   }
-
+  //fontion qui permet d'ajouter un rendez-vous a la liste
+  //formulaire correspond a l'objet rdv cree obtenue grace au formulaire de creation d'un rdv
   validerAjout(){
     //ajouter le creneau au rdv
     this.apiRdvBrokerService.ajouterRdv(this.formulaire);

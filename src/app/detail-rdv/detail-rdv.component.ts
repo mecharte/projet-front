@@ -12,7 +12,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 })
 
 export class DetailRdvComponent implements OnInit {
-
+  isCloturer = false;
   detail : rdv;
   formCreneauCache = false;
   listeEvtParcitipe : rdv[];
@@ -31,18 +31,20 @@ export class DetailRdvComponent implements OnInit {
       detail$.unsubscribe();
     });
   }
+  //fonction qui permet d'ajouter dans la listeParticipe un rdv présent dans la liste
+  //listeEvtParticipe => liste des rdv pour lequel le profil participe
+  //this.detail => correspond a un objet rdv
   ajouterDansListeParticipe()
   {
     let pos=0;
-    let i=0;
-    while(this.detail.listeCreneaux[i].numOK<=0)
-    {
-      i++;
-    }
     this.listeEvtParcitipe[pos]=this.detail;
     pos++;
-    this.apiRdvBrokerService.ajouterDansListeParticipe(this.detail.id);
+    this.apiRdvBrokerService.ajouterDansListeParticipe(this.detail);
   }
+  //fonction qui permet d'ajouter un + au bouton ok
+  //this.detail => correspond au rdv
+  //this.detail.listeCreneaux => liste des creneaux du rdv
+  //positionCreneau => correspond au creneau pour lequel on vas ajouter un + au bouton ok
   ajouterOK(creneau : Creneau){
     let positionCreneau = -1;
     //recuperation de la position du creneau dans la liste
@@ -57,6 +59,10 @@ export class DetailRdvComponent implements OnInit {
   this.apiRdvBrokerService.ajouterOK(creneau, this.detail.id)
   }
 
+  //fonction qui permet d'ajouter un + au bouton ko
+  //this.detail => correspond au rdv
+  //this.detail.listeCreneaux => liste des creneaux du rdv
+  //positionCreneau => correspond au creneau pour lequel on vas ajouter un + au bouton ko
   ajouterKO(creneau : Creneau){
     let positionCreneau = -1;
     //recuperation de la position du creneau dans la liste
@@ -71,8 +77,15 @@ export class DetailRdvComponent implements OnInit {
   this.apiRdvBrokerService.ajouterKO(creneau, this.detail.id)
   }
 
+  //fonction qui permet de cloturer un rdv ce qui bloque le creneau qui possede le plus de ok des participants
+  //this.isCloturer => permet de savoir si le bouton a ete clique
+  //nbOKMAX => correspond au nombreMax de personne ayant vote pour un creneau d'un rdv
+  //positionNBokMAX => correspond a la position dans la liste du creneau qui possede le plus de ok d'un rdv
+  //listeCloturer => correspond a la nouvelle liste qui possedera que le creneau qui possede le plus de ok
+  //this.detail.listeCreneaux => correspond a la liste du creneau
   cloturerRDV()
   {
+    this.isCloturer=true;
     let nbOKMAX=0;
     let positionNBokMAX=-1;
     //recuperer le nb participants le plus grands
@@ -91,9 +104,11 @@ export class DetailRdvComponent implements OnInit {
     this.detail.listeCreneaux=listeCloturer;
     this.apiRdvBrokerService.cloturerRDV(this.detail,this.detail.id);
   }
-
+  //fonction qui permet d'afficher le formulaire de creaneau
+  //this.formCreneauCache => variable qui permet de savoir si le creneau est ouvert ou pas
+  //this.isCloturer => permet de savoir si le creneau est cloturer pour ne plus ajouter de creneau
   ouvrirFormCreneau(){
-    if(this.formCreneauCache){
+    if(this.formCreneauCache || this.isCloturer){
       this.formCreneauCache = false;
       this.ngOnInit();
     }

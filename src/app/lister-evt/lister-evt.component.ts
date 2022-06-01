@@ -9,15 +9,15 @@ import {ApiRdvBrokerService} from '../api-rdv-broker.service';
 export class ListerEvtComponent implements OnInit {
   profil : profilRdv;
   listeEvt : rdv[];
-  listeEvtParcitipe : rdv[];
+  listeEvtParticipe : rdv[];
   constructor(private apiRdvBrokerService: ApiRdvBrokerService) {
     this.listeEvt = [];
-    this.listeEvtParcitipe=[];
+    this.listeEvtParticipe=[];
     this.profil= new profilRdv();
   }
 
   ngOnInit(): void {
     this.apiRdvBrokerService.recupererliste().subscribe((data)=>{this.listeEvt = data});
-    this.apiRdvBrokerService.recupererListeParticipe().subscribe((data)=>{this.listeEvtParcitipe = data});
+    this.apiRdvBrokerService.recupererListeParticipe().subscribe((data)=>{this.listeEvtParticipe = data});
   }
 }

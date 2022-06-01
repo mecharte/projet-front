@@ -17,7 +17,9 @@ export class AjouterCreneauComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  //ajouter un creneau dans un rendez-vous
+  // id => correspondt a id rendez-vous
+  //creneau correspond au creneau a renseigne
   ajouterCreneau(){
     let id = this.routeactive.snapshot.params['id'];
     this.apiRdvBrokerService.ajouterCreneau(this.creneau,id);

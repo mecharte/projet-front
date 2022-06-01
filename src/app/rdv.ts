@@ -1,3 +1,4 @@
+//correspond a la classe Creneau
 export class Creneau{
   id:number;
   heureD:string
@@ -15,6 +16,7 @@ export class Creneau{
     this.numKO=0;
   }
 }
+//correspond a la classe rendez-vous
 export class rdv {
 
   id : number;
@@ -30,18 +32,18 @@ export class rdv {
     this.listeCreneaux= [];
   }
 }
-
+//correspond a la classe profilRdv
   export class profilRdv {
     id : number;
     nom: string;
     prenom: string;
-    listeParcitipe: rdv [];
+    listeParticipe: rdv [];
 
     constructor() {
       this.id=0;
       this.nom = "";
       this.prenom = "";
-      this.listeParcitipe=[];
+      this.listeParticipe=[];
     }
   }
 
